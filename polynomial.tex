@@ -1,0 +1,215 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{Polynomial}
+\author{Sun Shengran}
+\date{December 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction to Polynomial}
+\subsection{Field}
+
+Let F be the set of some numbers.
+If F is closed to addition, subtraction, multiplication and division, then F is called a field.
+
+\noindent
+For example: rational set $\mathbb{Q}$ (Quotient) $\rightarrow$\ rational field
+
+\subsection{Polynomial}
+\subsubsection{Definition}
+For a field F and a notation(variation) \textit{X} (probably not $\in$ F),
+
+\begin{center}
+$f(X) = a_n X^n + a_{n-1} X^{n-1} + ... + a_1 X + a_0$ where $a_i \in F,\ i = 1,2,...,n$
+\end{center}
+
+\noindent
+is a polynomial with single variation on F.
+\subsubsection{Basic Features}
+1. If $n \ge 0$ and $a_n \neq 0$, then $n = \deg f(x)$.
+
+\vspace{0.2cm}
+\noindent
+2. Any $a \neq 0 \in F$ can be seen as a polynomial with degree 0.
+
+\vspace{0.2cm}
+\noindent
+3. $0 \in F$ is a polynomial with degree $-\infty$ and with no first term.
+
+\vspace{0.2cm}
+\noindent
+4. For polynomials
+$f(X) = a_nX^n +...+a_0$ and $g(X) = b_mX^m +...+ b_0$,
+
+\begin{center}
+$f(X) = g(x)$ $\Leftrightarrow$\ $m = n$ and $a_i = b_i,\ i = 1,2,...,n$
+\end{center}
+
+\vspace{0.2cm}
+\noindent
+5. $\deg fg = \deg f + \deg g$
+
+\vspace{0.2cm}
+\noindent
+6. $f \neq 0,\ g \neq 0$ $\Leftrightarrow$\ $fg \neq 0$ $\Leftrightarrow$\ $F[X]$ has no null factor.
+
+\vspace{0.2cm}
+\noindent
+7. Most polynomials $f(X)$ on F are non-invertible. The only invertible polynomial is non-zero constants(F*).
+
+\section{Number Theory in Polynomial}
+\subsection{Euclidean Division}
+$\forall f, g \in F[X]$ and $g \neq 0$,\  $\exists ! \ q, r \in F[X]$ such that
+
+\begin{center}
+$f = gq + r\ (r = 0\  \text{or}\  \deg r < \deg g)$
+\end{center}
+
+\subsection{Factors of $f(X)$}
+\subsubsection{Factor}
+If $f = gq\ (g \neq 0)$, then $g|f$ so $g$ is a factor of $f$.\ 
+
+\vspace{0.2cm}
+\noindent
+Trivial factors: 1 and $f(X)$ itself.
+
+\subsubsection{Reducibility}
+\noindent
+Also, if $f = gq$ and $g,q\in F$ are not constants, then $f$ is reducible over F.
+
+\vspace{0.2cm}
+\noindent
+If $f(X)$ is irreducible (i.e. only has trivial factors), then $f$ is prime.
+
+\subsubsection{Association}
+\noindent
+If $g|f$, then $bg|af$ for any non-zero constant $a,b \in F$.
+
+\vspace{0.2cm}
+\noindent
+For any non-zero constant $c \in F$, $g$ and $cg$ are associate.
+
+\vspace{0.2cm}
+\noindent
+If $g|f$ and $f|g$, then $f$ and $g$ are associate.
+
+\subsubsection{Highest Common Factor}
+\noindent
+\begin{center}
+$d(X)$ is the HCF of $f(X)$ and $g(X)$
+
+$\Updownarrow$\
+
+$d|f, d|g$\  and\  $\forall c \in F,\  c|f,\  c|g,\  c|d$
+\end{center}
+
+\noindent
+The HCF of $f$ and $g$ is unique if associate is not considered.\\
+If $(f,g) = 1$, then $f$ and $g$ are coprime.
+
+\subsection{B\'{e}zout Identity}
+For $f(X)$ and $g(X) \in F[X]$, their HCF $d(X)$ always exists uniquely\ 
+and there exists $u(X), v(X) \in F[X]$\ 
+such that
+
+\begin{center}
+$u(X)f(X) + v(X)g(X) =  d(X)$
+\end{center}
+
+\noindent
+Particularly,
+
+\noindent
+\begin{center}
+$f(X)$ and $g(X)$ are coprime
+
+$\Updownarrow$
+
+$\exists\  u(X), v(X) \in F[X]$ such that $u(X)f(X) + v(X)g(X) = 1$
+\end{center}
+
+\noindent
+Generally,
+
+\noindent
+For $f_i \in F[X],\ i = 1,2,...,s$, $\exists\ u_i \in F[X],\ i=1,2,...s$ such that
+\begin{center}
+$u_1f_1+u_2f_2+...+u_sf_s = (f_1,f_2,...f_s)$
+\end{center}
+
+\subsection{Unique Factorisation Domain}
+$\forall$ non-constant $f(X) \in F[X]$ can be factorised uniquely:
+
+\begin{center}
+$f(X) = p_1(X)^{v_1} p_2(X)^{v_2}... p_r(X)^{v_r}$
+where $p_i(X)$ are prime polynomials in $F[X]$.
+
+\vspace{0.15cm}
+$p_i(X)^{v_i}||f(X)$
+\end{center}
+
+\noindent
+This theorem can be stated as $F[X]$ is a unique factorisation domain.
+
+\subsection{Remainder Theorem and Factor Theorem}
+Remainder Theorem: $f(X)$ has remainder $r=f(c)$ when divided by $(X-c)$
+
+\noindent
+Factor Theorem: $(X-c)|f(X)$\  $\Leftrightarrow$\ $f(c)=0$
+
+\vspace{0.1cm}
+\noindent
+If $f(X)=(X-c)^m g(X)\ \ (g(c)\neq 0, m \ge 1)$, c is called multiple root when $m \ge 2$,\ 
+c is called single root when $m=1$.
+
+\subsection{Foundamental Theorem of Algebra}
+\textbf{Theorem}: If $f(X)$ is of degree $n (n \ge 0)$ in $F[X]$, then $f(X)$ has at most $n$ roots over $F$.
+
+\noindent
+(Proof by induction)
+
+\noindent
+Attention: If we deal with a set which is not a field,\ 
+then a polynomial with degree $n$ could have $>n$ roots. 
+
+\vspace{0.2cm}
+\noindent
+\textbf{Corollary}: If $f, g \in F[X]$ are both of degree $\le n (n \ge 0)$ and have $n+1$ points with equal values, then $f=g$.
+
+\noindent
+(Proof: consider $h = f - g$)
+
+\subsection{Differentiation}
+To justify the multiple roots of polynomial, we introduce the concept of differentiation.
+
+\subsubsection{Definition}
+The differentiation form of $f(X)= a_n X^n + a_{n-1} X^{n-1} +...+ a_1 X + a_0$ is
+
+\noindent
+\begin{center}
+$f'(X) = na_n X^{n-1} + (n-1)a_{n-1} X^{n-2} +...+ a_1 \in F[X]$
+\end{center}
+
+\subsubsection{Theorem}
+For $f(X)\in F[X]$, $c \in F$,
+
+\vspace{0.1cm}
+\noindent
+\textbf{Theorem}: $c$ is the root of $f(X)$ $\Leftrightarrow$\ $f(c) = f'(c) = 0$
+$\Leftrightarrow$\ $c$ is the root of $(f, f')$
+
+\vspace{0.1cm}
+\noindent
+\textbf{Corollary1}: If $(f,f')=1$, then $f(X)$ has no multiple root in any field $E \supseteq F$
+
+\vspace{0.1cm}
+\noindent
+\textbf{Corollary2}: If $f(X)$ is irreducible in $F \subset \mathbb{C}$, then $f(X)$ has no multiple root.
+
+\subsection{Summary}
+The application of number theory in polynomial is part of algebraic number theory.
+\end{document}

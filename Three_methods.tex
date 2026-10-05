@@ -1,0 +1,128 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tikz}
+\usepackage{hyperref}
+\title{Three Methods to Compare $e^\pi$ \text{and}\  $\pi^e$}
+\author{Sun Shengran}
+\date{December 2025}
+
+\pgfplotsset{compat=1.18}
+\begin{document}  
+
+\maketitle
+
+\section{Introduction}
+It is interesting to combine two essential constants into two numbers and work out
+some relationships between them. Thus, in this artice, I will discuss three methods to compare them. The first two methods both relate to logarithm and the last one is more elegant.
+
+\section{First Method: Take Logarithm Both Sides}
+\subsection{Lemma: Graph of $y = \frac{\ln(x)}{x},\ x\in \mathbb{R}^{+}$}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+  \begin{axis}[
+      axis lines=middle,
+      xlabel={$x$},
+      ylabel={$y$},
+      domain=0.1:6,
+      samples=200,
+      smooth,
+      ymin=-2, ymax=1,
+      xmin=0, xmax=6,
+    ]
+     \addplot[blue, thick] {ln(x)/x};
+     \addplot[
+      red,
+      mark=*,
+      only marks
+     ] coordinates {(e, 1/e)};
+     \node[anchor=south] at (axis cs:e, 1/e) {$\left(e,\frac{1}{e}\right)$};
+  \end{axis}
+\end{tikzpicture}
+\end{figure}
+\subsection{Main Process of Comparison}
+
+\begin{center}
+$e^\pi$\ \text{v.s.}\ $\pi^e$\
+
+\vspace{0.2cm}
+$\Leftrightarrow$\  $\pi \ln(e)$\ \text{v.s.}\ $e \ln(\pi)$ \\
+\vspace{0.1cm}
+\text{(take natural logarithm as logarithm is a strictly increasing function)}
+
+\vspace{0.2cm}
+$\Leftrightarrow$\ $\frac{1}{e}$\ \text{v.s.}\ $\frac{\ln(\pi)}{\pi}$
+\end{center}
+By lemma 2.1, $\frac{1}{e}$ \text{is the maximum of the function}\ $\frac{\ln(x)}{x}$.
+Hence, $e^\pi$ $>$ $\pi^e$.
+
+
+\section{Second Method: A Classic Area Comparison }
+Considering the graph of $y = \frac{1}{x},\ x>0$:
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+  \begin{axis}[
+      axis lines=middle,
+      xlabel={$x$},
+      ylabel={$y$},
+      domain=0.5:5,
+      samples=200,
+      smooth,
+      ymin=0, ymax=1,
+      xmin=0, xmax=5,
+    ]
+     \addplot[blue, thick] {1/x};
+   \end{axis}
+\end{tikzpicture}
+\end{figure}
+
+The area of the rectangle with width ($\pi-e$) and height $\frac{1}{e}$
+is larger than the area enclosed by the curver $y=\frac{1}{x}$ and x-axis between $x=e$ and $x=\pi$.
+
+Hence,
+
+\begin{center}
+$\frac{\pi-e}{e} > \int^{\pi}_{e} \frac{1}{x} dx$
+
+\vspace{0.2cm}
+$\Rightarrow$\ $\frac{\pi}{e}-1 > \ln(\pi)-1$
+
+\vspace{0.2cm}
+$\Rightarrow$\ $\pi > \ln(\pi^e)$
+
+\vspace{0.2cm}
+$\Rightarrow$\ $e^\pi > \pi^e$.
+
+\end{center}
+
+
+\section{Third Method: Applying $e^x \ge x+1$}
+\subsection{Lemma: $e^x \ge x+1,$ \ attaining equal sign iff $x=0$}
+This can be simply inspected from the graphs of $y=e^x$\ and $y=x+1$ on the same axes.
+
+\subsection{Main Process of Comparison}
+\begin{center}
+$e^\pi = e^{e(\frac{\pi}{e})} = (e^{(\frac{\pi}{e}-1+1)})^e = (e^{(\frac{\pi}{e}-1)})^e e^e$
+$\ge (\frac{\pi}{e})^e e^e = \pi^e$
+
+\vspace{0.5cm}
+as ${\frac{\pi}{e}-1} \neq 0$,\ $e^\pi > \pi^e$.
+\end{center}
+
+
+\section{Summary}
+The first method involves taking logarithm which is the most common approach to tackle exponents. Using the graph of $y = \frac{\ln(x)}{x}$ which we are familiar with is actually a kind of symmetry exploitation.  
+
+In comparison,the second method seems to be not that natural and not easy notice. Although this approach, relying on the area under the curve $y = \frac{1}{x}$ is quite common, it is not simple to come up with it immediately.
+
+The third method is more competition-styled. The application of the inequality $e^x \ge x+1$ is not uncommon in mathematics competition. Even so, the key point of this approach is the algebraic manipulation that is incredibly grateful and skillful.
+
+\section{Reference}
+1. Second Method Source: \ \href{https://pmt.physicsandmathstutor.com/download/Maths/A-level/Papers/OCR-MEI/Paper-3/IN/Nov%202020%20IN.pdf}{A level Mathematics B (MEI), October 2021, OCR}
+\end{document}
